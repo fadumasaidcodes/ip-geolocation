@@ -23,5 +23,8 @@ $.ajax(settings).done(function (response) {
 	var country_code = response.country_code;
 	// Append the paragraph element to the body of the HTML page
 	$("body").append(ipElement)
+    // Use jQuery to append the city and country code information to an element on the page
+	$("body").append("<p>City: " + city + "</p>");
+	$("body").append("<p>Country Code: " + country_code + "</p>");
     
 });
