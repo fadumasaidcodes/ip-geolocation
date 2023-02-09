@@ -13,3 +13,23 @@ const geolocationSettings = {
         "X-RapidAPI-Host": "ip-geolocation-ipwhois-io.p.rapidapi.com"
     }
 };
+
+// Send the IP geolocation API request
+$.ajax(geolocationSettings).done(function (response) {
+    // Log the API response to the console
+    console.log(response);
+
+    // Extract the city and country code from the response data
+    var city = response.city;
+    var countryCode = response.country_code;
+
+    // Use the city and country code to create the URL for the weather API request
+    var weatherApiUrl = `${weatherUrl}?q=${city},${countryCode}&appid=${apiKey}`;
+
+    // Define the weather API settings
+    const weatherSettings = {
+        "async": true,
+        "crossDomain": true,
+        "url": weatherApiUrl,
+        "method": "GET"
+    };
