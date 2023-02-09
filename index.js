@@ -10,3 +10,8 @@ const settings = {
 	}
 };
 
+// Send the API request
+$.ajax(settings).done(function (response) {
+	// Log the API response to the console
+	console.log(response);
+});
