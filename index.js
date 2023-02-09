@@ -14,4 +14,11 @@ const settings = {
 $.ajax(settings).done(function (response) {
 	// Log the API response to the console
 	console.log(response);
+    const ip = response.ip;
+
+	// Create a paragraph element to display the IP address
+	const ipElement = $("<p>").text(`Your IP address is: ${ip}`);
+
+	// Append the paragraph element to the body of the HTML page
+	$("body").append(ipElement)
 });
