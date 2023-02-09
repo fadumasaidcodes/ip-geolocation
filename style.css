@@ -1,7 +1,10 @@
-body{
-    background-color: red;
-}
-
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    background-color: bisque;
+  }
+  
 
 .container {
     width: 500px;

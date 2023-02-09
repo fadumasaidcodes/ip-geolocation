@@ -18,7 +18,10 @@ $.ajax(settings).done(function (response) {
 
 	// Create a paragraph element to display the IP address
 	const ipElement = $("<p>").text(`Your IP address is: ${ip}`);
-
+	// Extract the city and country code from the response data
+	var city = response.city;
+	var country_code = response.country_code;
 	// Append the paragraph element to the body of the HTML page
 	$("body").append(ipElement)
+    
 });
