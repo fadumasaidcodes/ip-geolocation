@@ -33,3 +33,24 @@ $.ajax(geolocationSettings).done(function (response) {
         "url": weatherApiUrl,
         "method": "GET"
     };
+        // Send the weather API request
+        $.ajax(weatherSettings).done(function (weatherResponse) {
+            // Log the API response to the console
+            console.log(weatherResponse);
+    
+            // Extract the relevant weather information from the response data
+            var weatherDescription = weatherResponse.weather[0].description;
+            var temperature = (weatherResponse.main.temp - 273.15).toFixed(1); // convert from Kelvin to Celsius
+            var iconId = weatherResponse.weather[0].icon;
+            var iconUrl = `http://openweathermap.org/img/wn/${iconId}@2x.png`;
+    
+            // Create a paragraph element to display the weather information
+            const weatherElement = $("<p>").text(`The current weather in ${city} is ${weatherDescription} with a temperature of ${temperature}°C.`);
+            // Create an image element to display the weather icon
+            const iconElement = $("<img>").attr("src", iconUrl).attr("alt", weatherDescription);
+    
+            // Append the weather information and weather icon to the body of the HTML page
+            $("body").append(weatherElement);
+            $("body").append(iconElement);
+        });
+    });
